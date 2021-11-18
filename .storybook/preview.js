@@ -1,6 +1,7 @@
 import React from 'react';
 // import { addDecorator } from '@storybook/react';
 import Center from '../src/components/Center/Center';
+import '@storybook/addon-console';
 
 // addDecorator((Story) => <Center>{<Story />}</Center>);
 

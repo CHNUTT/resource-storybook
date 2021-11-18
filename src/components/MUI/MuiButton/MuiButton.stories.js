@@ -15,7 +15,22 @@ export default {
   title: 'MUI/Button',
   component: Button,
   argTypes: {
-    variant: { control: 'text' },
+    variant: {
+      options: ['text', 'contained', 'outlined'],
+      control: { type: 'radio' },
+    },
+    color: {
+      options: ['default', 'inherit', 'primary', 'secondary'],
+      control: { type: 'radio' },
+      table: {
+        type: { summary: 'text' },
+        defaultValue: { summary: 'default' },
+      },
+    },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'radio' },
+    },
     onClick: { action: 'click' },
   },
   decorators: [
@@ -32,17 +47,26 @@ const SingleTemplate = ({ children, ...rest }) => <Button {...rest}>{children}</
 export const Text = SingleTemplate.bind({});
 Text.args = {
   variant: 'text',
+  color: 'default',
   children: 'Text Button',
 };
 
 export const Contained = SingleTemplate.bind({});
 Contained.args = {
   variant: 'contained',
+  color: 'default',
   children: 'Contained Button',
 };
 
 export const Outline = SingleTemplate.bind({});
 Outline.args = {
   variant: 'outlined',
+  color: 'default',
   children: 'Outline Button',
+};
+
+export const Log = SingleTemplate.bind({});
+Log.args = {
+  children: 'Log',
+  onClick: () => console.log('Button clicked'),
 };
