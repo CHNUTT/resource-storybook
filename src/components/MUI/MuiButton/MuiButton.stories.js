@@ -2,6 +2,7 @@
 import Button from '@material-ui/core/Button';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import createTheme from '@material-ui/core/styles/createTheme';
+import { text, boolean } from '@storybook/addon-knobs';
 
 const theme = createTheme({
   typography: {
@@ -70,3 +71,9 @@ Log.args = {
   children: 'Log',
   onClick: () => console.log('Button clicked'),
 };
+
+export const Knobs = () => (
+  <Button variant="contained" disabled={boolean('Disabled', false)}>
+    {text('Label', 'Button Label')}
+  </Button>
+);

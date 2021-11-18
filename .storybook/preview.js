@@ -2,11 +2,12 @@ import React from 'react';
 import Center from '../src/components/Center/Center';
 import { addDecorator } from '@storybook/react';
 import { withConsole } from '@storybook/addon-console';
+import { withKnobs } from '@storybook/addon-knobs';
 
 // export const decorators = [(Story) => <Center>{<Story />}</Center>];
 addDecorator((Story) => <Center>{<Story />}</Center>);
-
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
+addDecorator(withKnobs);
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
