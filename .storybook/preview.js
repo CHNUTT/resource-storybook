@@ -1,13 +1,20 @@
 import React from 'react';
 import Center from '../src/components/Center/Center';
-import { addDecorator } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withConsole } from '@storybook/addon-console';
 import { withKnobs } from '@storybook/addon-knobs';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 // export const decorators = [(Story) => <Center>{<Story />}</Center>];
 addDecorator((Story) => <Center>{<Story />}</Center>);
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator(withKnobs);
+
+addParameters({
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+  },
+});
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
