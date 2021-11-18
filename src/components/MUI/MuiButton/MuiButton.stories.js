@@ -14,6 +14,10 @@ const theme = createTheme({
 export default {
   title: 'MUI/Button',
   component: Button,
+  argTypes: {
+    variant: { control: 'text' },
+    onClick: { action: 'click' },
+  },
   decorators: [
     (Story) => (
       <ThemeProvider theme={theme}>
@@ -23,6 +27,22 @@ export default {
   ],
 };
 
-export const Text = () => <Button variant="text">Primary</Button>;
-export const Contained = () => <Button variant="contained">Primary</Button>;
-export const Outline = () => <Button variant="outlined">Primary</Button>;
+const SingleTemplate = ({ children, ...rest }) => <Button {...rest}>{children}</Button>;
+
+export const Text = SingleTemplate.bind({});
+Text.args = {
+  variant: 'text',
+  children: 'Text Button',
+};
+
+export const Contained = SingleTemplate.bind({});
+Contained.args = {
+  variant: 'contained',
+  children: 'Contained Button',
+};
+
+export const Outline = SingleTemplate.bind({});
+Outline.args = {
+  variant: 'outlined',
+  children: 'Outline Button',
+};
