@@ -1,7 +1,6 @@
 import React from 'react';
 import Center from '../src/components/Center/Center';
 import { addDecorator, addParameters } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y'
 import { withConsole } from '@storybook/addon-console';
 import { withKnobs } from '@storybook/addon-knobs';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
@@ -9,8 +8,6 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 // export const decorators = [(Story) => <Center>{<Story />}</Center>];
 addDecorator((Story) => <Center>{<Story />}</Center>);
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
-addDecorator(withKnobs);
-addDecorator(withA11y);
 
 addParameters({
   viewport: {

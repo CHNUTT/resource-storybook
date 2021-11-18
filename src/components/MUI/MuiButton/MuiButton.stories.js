@@ -69,7 +69,7 @@ Outline.args = {
 export const Log = SingleTemplate.bind({});
 Log.args = {
   children: 'Log',
-  onClick: () => console.log('Button clicked'),
+  onClick: () => console.log('Button clicked', process.env.STORYBOOK_THEME),
 };
 
 export const Knobs = () => (
